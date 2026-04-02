@@ -145,4 +145,6 @@ MIT
 
 ---
 
+A [Nexus Nomads](https://nexusnomads.com/) project.
+
 *What if your notes reminded you they're temporary?*
