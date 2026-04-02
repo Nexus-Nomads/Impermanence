@@ -157,6 +157,8 @@ MIT © [Nexus Nomads](https://nexusnomads.com/)
 
 A [Nexus Nomads](https://nexusnomads.com/) × [Dead Poets](https://deadpoets.xyz) project.
 
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/C0C01TNH9S)
+
 *What if your notes reminded you they're temporary?*
 
 </div>
