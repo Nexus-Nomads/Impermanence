@@ -1,0 +1,9 @@
+{
+	"id": "obsidian-l33t",
+	"name": "Impermanence",
+	"version": "1.0.0",
+	"minAppVersion": "0.15.0",
+	"description": "Your notes decay. Slowly. Silently. One letter per day. Catching yourself is the practice.",
+	"author": "Dead Poets",
+	"isDesktopOnly": false
+}
