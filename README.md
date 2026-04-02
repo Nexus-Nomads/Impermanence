@@ -80,22 +80,24 @@ At some point the word is still readable. Then it tips. Then it's noise.
 
 ## Installation
 
-### Manual
+### From Releases
 
-1. Download the latest release from [Releases](https://github.com/Nexus-Nomads/Impermanence/releases)
-2. Extract into your vault's `.obsidian/plugins/obsidian-l33t/` folder
-3. Enable **Impermanence** in Settings → Community Plugins
+1. Go to the [Releases](https://github.com/Nexus-Nomads/Impermanence/releases) page
+2. Download `main.js`, `manifest.json`, and `styles.css` from the latest release
+3. Create a folder called `obsidian-impermanenc3` inside your vault's `.obsidian/plugins/` directory
+4. Place the downloaded files into that folder
+5. Restart Obsidian and enable **Impermanence** in Settings → Community Plugins
 
 ### Build from Source
 
 ```bash
-git clone git@github.com:Nexus-Nomads/Impermanence.git
+git clone https://github.com/Nexus-Nomads/Impermanence.git
 cd Impermanence
 npm install
 npm run build
 ```
 
-Copy `main.js`, `manifest.json`, and `styles.css` into your vault's `.obsidian/plugins/obsidian-l33t/` folder.
+Copy `main.js`, `manifest.json`, and `styles.css` into your vault's `.obsidian/plugins/obsidian-impermanenc3/` folder.
 
 ---
 
