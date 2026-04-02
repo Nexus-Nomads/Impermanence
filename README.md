@@ -1,10 +1,28 @@
-# Impermanence
+<div align="center">
 
-An Obsidian plugin for practicing impermanence in your second brain.
+```
+ ██ ███    ███ ██████  ███████ ██████  ███    ███  █████  ███    ██ ███████ ███    ██  ██████ ██████ 
+ ██ ████  ████ ██   ██ ██      ██   ██ ████  ████ ██   ██ ████   ██ ██      ████   ██ ██          ██
+ ██ ██ ████ ██ ██████  █████   ██████  ██ ████ ██ ███████ ██ ██  ██ █████   ██ ██  ██ ██      █████ 
+ ██ ██  ██  ██ ██      ██      ██   ██ ██  ██  ██ ██   ██ ██  ██ ██ ██      ██  ██ ██ ██          ██
+ ██ ██      ██ ██      ███████ ██   ██ ██      ██ ██   ██ ██   ████ ███████ ██   ████  ██████ ██████ 
+```
+
+**An Obsidian plugin for practicing impermanence in your second brain.**
+
+[![MIT License](https://img.shields.io/badge/license-MIT-FF6B2B?style=flat-square)](LICENSE)
+[![Obsidian](https://img.shields.io/badge/Obsidian-plugin-6c31e3?style=flat-square&logo=obsidian&logoColor=white)](https://obsidian.md)
+[![Version](https://img.shields.io/badge/version-1.0.0-FAFAFA?style=flat-square)](https://github.com/Nexus-Nomads/Impermanence/releases)
 
 > *"They treat their notes like monuments, when they should treat them like morning dew."*
 
 ---
+
+`meditation` → `meditati0n` → `m3d1ta710n` → `m3d17471 0n`
+
+---
+
+</div>
 
 ## What It Does
 
@@ -51,16 +69,10 @@ The bug *is* the feature.
 
 ### The L33t Map
 
-| Original | Becomes |
-|----------|---------|
-| a | 4 |
-| e | 3 |
-| i | 1 |
-| o | 0 |
-| t | 7 |
-| s | 5 |
-| b | 8 |
-| g | 9 |
+```
+  a → 4    e → 3    i → 1    o → 0
+  t → 7    s → 5    b → 8    g → 9
+```
 
 At some point the word is still readable. Then it tips. Then it's noise.
 
@@ -90,12 +102,12 @@ Copy `main.js`, `manifest.json`, and `styles.css` into your vault's `.obsidian/p
 ## Settings
 
 | Setting | Default | Description |
-|---------|---------|-------------|
-| Enable decay | On | Turn the entropy on or off |
-| Decay rate | 1 | Letters replaced per cycle (1–5) |
-| Interval | 24 hours | Hours between each decay cycle (1–168) |
-| Excluded folders | — | Comma-separated folder paths to skip |
-| Trigger decay now | — | Manual trigger for testing |
+|:--------|:-------:|:------------|
+| Enable decay | `On` | Turn the entropy on or off |
+| Decay rate | `1` | Letters replaced per cycle (1–5) |
+| Interval | `24h` | Hours between each decay cycle (1–168) |
+| Excluded folders | `—` | Comma-separated folder paths to skip |
+| Trigger decay now | `—` | Manual trigger for testing |
 
 ---
 
@@ -103,7 +115,7 @@ Copy `main.js`, `manifest.json`, and `styles.css` into your vault's `.obsidian/p
 
 The web must hold. These are never touched:
 
-- YAML frontmatter
+- `YAML` frontmatter
 - Wikilinks `[[...]]` and embeds `![[...]]`
 - Markdown links `[text](url)`
 - Code blocks and inline code
@@ -130,21 +142,21 @@ The answer came like morning dew forming on silk: **Let the notes themselves bec
 
 ---
 
-## The Oldest Truth
+<div align="center">
+
+### The Oldest Truth
 
 *The web remembers everything, yet holds nothing.*
 *Each morning brings new dew.*
 *Each character shift whispers the oldest truth:*
-*This too shall pass.*
+***This too shall pass.***
 
 ---
 
-## License
+MIT © [Nexus Nomads](https://nexusnomads.com/)
 
-MIT
-
----
-
-A [Nexus Nomads](https://nexusnomads.com/) project.
+A [Nexus Nomads](https://nexusnomads.com/) × [Dead Poets](https://deadpoets.xyz) project.
 
 *What if your notes reminded you they're temporary?*
+
+</div>
