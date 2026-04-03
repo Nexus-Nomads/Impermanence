@@ -281,7 +281,6 @@ class L33tSettingTab extends PluginSettingTab {
 		const { containerEl } = this;
 		containerEl.empty();
 
-		new Setting(containerEl).setName("Impermanence").setHeading();
 		containerEl.createEl("p", {
 			text: "Your notes decay. Slowly. Silently. One letter per day.",
 			cls: "setting-item-description",
@@ -329,10 +328,10 @@ class L33tSettingTab extends PluginSettingTab {
 
 		new Setting(containerEl)
 			.setName("Excluded folders")
-			.setDesc(`Comma-separated folder paths to skip (e.g. templates, ${this.app.vault.configDir}).`)
+			.setDesc(`Comma-separated folder paths to skip (e.g. Templates, ${this.app.vault.configDir}).`)
 			.addText((text) =>
 				text
-					.setPlaceholder("templates, archive")
+					.setPlaceholder("Templates, archive")
 					.setValue(this.plugin.settings.excludedFolders.join(", "))
 					.onChange(async (value) => {
 						this.plugin.settings.excludedFolders = value
