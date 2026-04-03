@@ -63,7 +63,7 @@ function getProtectedRanges(text: string): [number, number][] {
 		// URLs
 		/https?:\/\/[^\s)>\]]+/g,
 		// Tags — # followed by word chars (but not headings: # at line start followed by space)
-		/(?<=\s|^)#[^\s#]+/gm,
+		/(?:\s|^)#[^\s#]+/gm,
 		// HTML tags
 		/<[^>]+>/g,
 		// Obsidian embeds ![[...]]
@@ -223,7 +223,7 @@ export default class L33tPlugin extends Plugin {
 
 		// If interval has already passed (e.g. Obsidian was closed), fire immediately
 		this.timerRef = window.setTimeout(() => {
-			this.performDecay();
+			void this.performDecay();
 		}, remaining);
 
 		// Register so Obsidian can clean up
@@ -232,7 +232,7 @@ export default class L33tPlugin extends Plugin {
 
 	// ── The Core ──
 
-	private async performDecay() {
+	async performDecay() {
 		if (!this.settings.enabled) return;
 
 		const files = this.getEligibleFiles();
@@ -281,7 +281,7 @@ class L33tSettingTab extends PluginSettingTab {
 		const { containerEl } = this;
 		containerEl.empty();
 
-		containerEl.createEl("h2", { text: "Impermanence" });
+		new Setting(containerEl).setName("Impermanence").setHeading();
 		containerEl.createEl("p", {
 			text: "Your notes decay. Slowly. Silently. One letter per day.",
 			cls: "setting-item-description",
@@ -300,37 +300,39 @@ class L33tSettingTab extends PluginSettingTab {
 		new Setting(containerEl)
 			.setName("Decay rate")
 			.setDesc("Letters replaced per cycle.")
-			.addSlider((slider) =>
-				slider
-					.setLimits(1, 5, 1)
-					.setValue(this.plugin.settings.decayRate)
-					.setDynamicTooltip()
+			.addText((text) =>
+				text
+					.setValue(String(this.plugin.settings.decayRate))
 					.onChange(async (value) => {
-						this.plugin.settings.decayRate = value;
-						await this.plugin.saveSettings();
+						const num = parseInt(value, 10);
+						if (!isNaN(num) && num >= 1) {
+							this.plugin.settings.decayRate = num;
+							await this.plugin.saveSettings();
+						}
 					})
 			);
 
 		new Setting(containerEl)
 			.setName("Interval (hours)")
 			.setDesc("Hours between each decay cycle.")
-			.addSlider((slider) =>
-				slider
-					.setLimits(1, 168, 1)
-					.setValue(this.plugin.settings.intervalHours)
-					.setDynamicTooltip()
+			.addText((text) =>
+				text
+					.setValue(String(this.plugin.settings.intervalHours))
 					.onChange(async (value) => {
-						this.plugin.settings.intervalHours = value;
-						await this.plugin.saveSettings();
+						const num = parseInt(value, 10);
+						if (!isNaN(num) && num >= 1) {
+							this.plugin.settings.intervalHours = num;
+							await this.plugin.saveSettings();
+						}
 					})
 			);
 
 		new Setting(containerEl)
 			.setName("Excluded folders")
-			.setDesc("Comma-separated folder paths to skip (e.g. Templates, .obsidian).")
+			.setDesc(`Comma-separated folder paths to skip (e.g. templates, ${this.app.vault.configDir}).`)
 			.addText((text) =>
 				text
-					.setPlaceholder("Templates, Archive")
+					.setPlaceholder("templates, archive")
 					.setValue(this.plugin.settings.excludedFolders.join(", "))
 					.onChange(async (value) => {
 						this.plugin.settings.excludedFolders = value
@@ -347,8 +349,31 @@ class L33tSettingTab extends PluginSettingTab {
 			.setDesc("For testing. Fires one decay cycle immediately.")
 			.addButton((btn) =>
 				btn.setButtonText("Decay").onClick(async () => {
-					await (this.plugin as any).performDecay();
+					await this.plugin.performDecay();
 				})
 			);
+
+		// ── Support ──
+		new Setting(containerEl).setName("Support").setHeading();
+
+		const donateDiv = containerEl.createDiv({ cls: "setting-item" });
+		const infoDiv = donateDiv.createDiv({ cls: "setting-item-info" });
+		infoDiv.createDiv({ cls: "setting-item-name", text: "Donate" });
+		infoDiv.createDiv({
+			cls: "setting-item-description",
+			text: "If you like this plugin, consider donating to support continued development.",
+		});
+		const controlDiv = donateDiv.createDiv({ cls: "setting-item-control" });
+		const link = controlDiv.createEl("a", {
+			href: "https://ko-fi.com/C0C01TNH9S",
+			attr: { target: "_blank" },
+		});
+		link.createEl("img", {
+			attr: {
+				src: "https://storage.ko-fi.com/cdn/kofi6.png?v=6",
+				alt: "Buy Me a Coffee at ko-fi.com",
+				style: "border:0px;height:36px;",
+			},
+		});
 	}
 }
