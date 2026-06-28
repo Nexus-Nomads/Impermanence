@@ -157,7 +157,7 @@ The answer came like morning dew forming on silk: **Let the notes themselves bec
 
 MIT © [Nexus Nomads](https://nexusnomads.com/)
 
-A [Nexus Nomads](https://nexusnomads.com/) × [Dead Poets](https://deadpoets.xyz) project.
+A [Nexus Nomads](https://nexusnomads.com/) project.
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/C0C01TNH9S)
 
